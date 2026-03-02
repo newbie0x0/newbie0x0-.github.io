@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buku Online</title>
+    <style>
+        body {
+            margin: 0;
+            background: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .arrow {
+            font-size: 50px;
+            color: white;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        img {
+            width: 470px; /* Diperkecil agar muat layar */
+            height: auto;
+            box-shadow: 0 0 20px black;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="arrow" onclick="prevPage()">⬅️</div>
+
+    <img id="book" src="gambar/1.jpg">
+
+    <div class="arrow" onclick="nextPage()">➡️</div>
+</div>
+
+<script>
+    let currentPage = 1;
+    let totalPages = 5; // GANTI sesuai jumlah halaman kamu
+
+    function nextPage() {
+        if (currentPage < totalPages) {
+            currentPage++;
+            document.getElementById("book").src = "gambar/" + currentPage + ".jpg";
+        }
+    }
+
+    function prevPage() {
+        if (currentPage > 1) {
+            currentPage--;
+            document.getElementById("book").src = "gambar/" + currentPage + ".jpg";
+        }
+    }
+</script>
+
+</body>
+</html>
